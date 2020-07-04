@@ -14,6 +14,3 @@ Knowledge points:
 
 1) input()
 2) if / elif / else
-3) while True loop + break
-4) list
-5) for range else
