@@ -1,4 +1,2 @@
-https://www.runoob.com/python/python-exercise-example4.html
-
 Question 4)
 输入某年某月某日，判断这一天是这一年的第几天？

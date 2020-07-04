@@ -1,5 +1,3 @@
-https://www.runoob.com/python/python-exercise-example2.html
-
 Question 2)
 Calculate bonus based on Profit:
 profit <= 10万元时，奖金提10%；
