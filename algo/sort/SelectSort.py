@@ -2,8 +2,8 @@ import random
 
 intList = []
 
-for i in range(100):
-    intList.append(random.randint(1,1000))
+for i in range(10):
+    intList.append(random.randint(1,100))
 
 print("Before Sort", intList)
 
