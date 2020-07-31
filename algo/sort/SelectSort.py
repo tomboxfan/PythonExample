@@ -10,7 +10,7 @@ print("Before Sort", intList)
 
 for i in range(len(intList)):
 
-    # first I want to define, where is the smallest number
+    # define a variable to remember the index of the smallest number
     candidateIndex = i
 
     # I need to find the smallest number in the remaining numbers
