@@ -41,11 +41,11 @@ while(True):
     elif command.startswith("List Class"):
         print(current_class)
 
-    elif command.startswith("Student Left: "):
+    elif command.startswith("Student Leaves Class: "):
         print("Student left")
 
-    elif command.startswith("Student Change Class to: "):
-        print("Student change class to")
+    elif command.startswith("Student Changes Class: "):
+        print("Student change class")
 
 
 
