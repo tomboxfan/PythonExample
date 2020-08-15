@@ -1,32 +1,35 @@
-# def square(x):
-#     return x ** 2
-#
-# print(square(10))
-# print(square(20))
-# print(square(30))
-# print(square(40))
-#
-# def launch_missile():
-#     print("Missle launched!")
-#
-# launch_missile()
-# launch_missile()
-# launch_missile()
-#
-# def nth_root(radicand, n):
-#     return radicand ** (1/n)
-#
-# print(nth_root(4,2))
-# print(nth_root(27,3))
-# print(nth_root(625,4))
 
+# with return value -------------------------------------
+def square(x):
+    '''
+    This function will calculate the square number of the passed-in parameter x
+    '''
+    return x ** 2;
+
+
+
+# without return value -----------------------------------
+def launch_missile():
+    '''
+    This function will launch a missile.
+    '''
+    print("Missile launched!")
+
+
+
+# function with default argument value ----------------------
+# User can pass or not pass parameter border
+# Parameters who has a default value should be put behind
 def banner(message, border='-'):
     line = border * len(message)
     print(line)
     print(message)
     print(line)
 
-banner("I love Python")
-# banner("I love Python", "*")
-# banner("Singapore is a beautiful city")
-# banner("Singapore is a beautiful city", "-")
+
+
+print(square(10))
+launch_missile()
+
+banner("Singapore is a beautiful country")
+banner("Singapore is a beautiful country", "*")
