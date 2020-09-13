@@ -1,4 +1,4 @@
-# From Natali
+# From Natalie
 # 采用余数来判断正负号
 
 pi = 0

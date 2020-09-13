@@ -13,7 +13,7 @@ for i in range(month-1):
 
     # 3m old -> adultP307_solution2_Vincent.py
     # P307_solution3_Yixuan.py
-    # P307_solution4_Natali.py
+    # P307_solution4_Natalie.py
     # P307_solution5_Yifan.py
     # P307_solution6_Buwei.py
     rabbit_adult += rabbit_3m_old;
