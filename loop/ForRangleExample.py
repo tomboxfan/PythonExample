@@ -1,5 +1,5 @@
 for i in range(5):
-    print(i)
+   print(i)
 
-for i in range(50, 60):
-    print(i)
+# for i in range(50, 60):
+#     print(i)
