@@ -77,7 +77,39 @@ def unpacking_example():
     print(a, b, c, d)
 
 
-# construct_example()
-# access_example()
-# loop_example()
+def minmax(items):
+    return min(items), max(items)
+
+
+def unpacking_example2():
+    lower, upper = minmax([1, 2, 3, 4, 5])  # pass in list
+    print(lower, upper)
+    lower, upper = minmax("Apple")  # pass in String
+    print(lower, upper)
+    lower, upper = minmax({1, 3, 2, -100})  # pass in set
+    print(lower, upper)
+    lower, upper = minmax(("Tom", "Billy", "Sandy", "Sue"))  # pass in a tuple
+    print(lower, upper)
+
+def unpacking_example3():
+    a = ("NUS", 5000, "Computer Science")
+    university, student, department = a
+    print(university, student, department)
+    x, *y, z = (10, "Geeks", "for", "Geeks", 50)
+    print(x)
+    print(y)
+    print(type(y))  # list
+    print(z)
+    x, y, *z = (10, "Geeks", "for", "Geeks", 50)
+    print(x)
+    print(y)
+    print(z)
+    print(type(z))  # list
+
+
+construct_example()
+access_example()
+loop_example()
 unpacking_example()
+unpacking_example2()
+unpacking_example3()
