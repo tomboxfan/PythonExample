@@ -12,8 +12,9 @@ carYear = car.get("year")
 
 print(carModel, carYear) # Mustang 1964
 
-# change value
+# add new / change value
 car["year"] = 2008
+car["price"] = 1000000
 print(car)
 
 # Loop
