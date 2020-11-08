@@ -1,3 +1,5 @@
+from datetime import datetime
+
 '''
 brute force means: try all possibilities
 brute force simply takes advantage of the computer power to exhaust all possibilities.
@@ -5,17 +7,10 @@ brute force do not implement any optimization, or implement very limited optimiz
 brute force is a bad algorithm
 brute force takes a long time
 brute force is the last choice
-
-教师台词：让我们先看几个brute force 算法的例子
-
 '''
 
 # solution 1 - brute force
-
 # stops working if max_number = 100,000
-from datetime import datetime
-
-
 def solution1_brute_force(max_number):
 
     check_times = 0
@@ -121,37 +116,16 @@ def solution4_check_prim_till_sqrt(max_number):
 
 
 max_num = 1000000
+start_time = datetime.now()
 
-#
 # result1 = solution1_brute_force(max_num)
-# print(len(result1[0]))
-# # print(result1[0])
-# print(result1[1])
-#
-# print("*" * 100)
-
-start_time = datetime.now()
-result1 = solution2_check_till_sqrt(max_num)
-end_time = datetime.now()
-print(len(result1[0]))
-# print(result1[0])
-print(result1[1])
-print(f'Spent {(end_time - start_time).seconds} seconds')
-
-print("*" * 100)
-
+# result1 = solution2_check_till_sqrt(max_num)
 # result1 = solution3_check_prim_till_sqrt(max_num)
-# print(len(result1[0]))
-# # print(result1[0])
-# print(result1[1])
-#
-# print("*" * 100)
-
-start_time = datetime.now()
 result1 = solution4_check_prim_till_sqrt(max_num)
+
+
 end_time = datetime.now()
 print(len(result1[0]))
-# print(result1[0])
 print(result1[1])
 print(f'Spent {(end_time - start_time).seconds} seconds')
 
