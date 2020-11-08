@@ -1,71 +1,96 @@
 '''
 brute force means: try all possibilities
-brute force simply takes advantage of the computer power to exhaust all possibilities
-brute force does not implement any optimization, or implement very limited optimization
-brute force is a BAD algorithm
+brute force simply takes advantage of the computer power to exhaust all possibilities.
+brute force do not implement any optimization, or implement very limited optimization.
+brute force is a bad algorithm
 brute force takes a long time
 brute force is the last choice
+
+教师台词：让我们先看几个brute force 算法的例子
+
 '''
+
+# solution 1 - brute force
+
+# stops working if max_number = 100,000
+from datetime import datetime
+
 
 def solution1_brute_force(max_number):
 
     check_times = 0
     prime_number_list = []
 
-    for number_to_be_checked in range(2, max_number):
+    for prime_candidate in range(2, max_number):
 
-        # brute force - check all numbers till number_to_be_checked
-        for potential_factor in range(2, number_to_be_checked):
-            check_times += 1
-            if(number_to_be_checked % potential_factor == 0):
+        # brute force - check till prime_candidate
+        for potential_factor in range(2, prime_candidate):
+            check_times+=1
+            if (prime_candidate % potential_factor == 0):
                 break
-        else:   # else clause
-            prime_number_list.append(number_to_be_checked)
-
+        else:
+            prime_number_list.append(prime_candidate)
 
     return (prime_number_list, check_times)
 
+
+
+# solution 2 - check till square root
 
 def solution2_check_till_sqrt(max_number):
 
     check_times = 0
     prime_number_list = []
 
-    for number_to_be_checked in range(2, max_number):
+    for prime_candidate in range(2, max_number):
 
-        sqrt_of_number_to_be_checked = int(number_to_be_checked ** 0.5) + 1
+        # optimized - check till the square root of prime_candidate
+        sqrt_of_number_to_be_checked = int(prime_candidate ** 0.5) + 1
+
         for potential_factor in range(2, sqrt_of_number_to_be_checked):
-            check_times += 1
-            if(number_to_be_checked % potential_factor == 0):
+            check_times+=1
+            if (prime_candidate % potential_factor == 0):
                 break
-        else:   # else clause
-            prime_number_list.append(number_to_be_checked)
+        else:
+            prime_number_list.append(prime_candidate)
 
     return (prime_number_list, check_times)
 
 
 
-def solution3_check_prime_till_sqrt(max_number):
+# solution 3 - check all primes till square root
+# This is even slower than solution 2
+# The only possible reason is:
+# prime_to_be_checked = [e for e in prime_number_list if e <= sqrt_of_number_to_be_checked + 1] is slow
+def solution3_check_prim_till_sqrt(max_number):
 
     check_times = 0
     prime_number_list = []
 
-    for number_to_be_checked in range(2, max_number):
+    for prime_candidate in range(2, max_number):
 
-        sqrt_of_number_to_be_checked = int(number_to_be_checked ** 0.5) + 1
+        sqrt_of_number_to_be_checked = int(prime_candidate ** 0.5) + 1
 
-        prime_to_be_checked = [n          for n in prime_number_list        if n <= sqrt_of_number_to_be_checked  ]
+        # filter using list comprehension
+        prime_to_be_checked = [e for e in prime_number_list if e <= sqrt_of_number_to_be_checked + 1]
 
         for potential_factor in prime_to_be_checked:
-            check_times += 1
-            if(number_to_be_checked % potential_factor == 0):
+            check_times+=1
+            if (prime_candidate % potential_factor == 0):
                 break
-        else:   # else clause
-            prime_number_list.append(number_to_be_checked)
+        else:
+            prime_number_list.append(prime_candidate)
 
     return (prime_number_list, check_times)
 
 
+
+'''
+Performance Summary:
+max_number = 1,000,000
+prime_count = 78,498
+check_count = 13,927,401
+'''
 def solution4_check_prim_till_sqrt(max_number):
 
     check_times = 0
@@ -95,16 +120,38 @@ def solution4_check_prim_till_sqrt(max_number):
 
 
 
-# this algo cannot work if max_numbers == 100,000
-# result = solution1_brute_force(100000)
-# print('there are', len(result[0]), 'prime numbers. They are:', result[0])
-# print('In total, it takes', result[1], 'checks.')
+max_num = 1000000
 
-# this algo cannot work if max_numbers == 1,000,000 (almost)
-# result = solution2_check_till_sqrt(1000000)
-# print('there are', len(result[0]), 'prime numbers. They are:', result[0])
-# print('In total, it takes', result[1], 'checks.')
+#
+# result1 = solution1_brute_force(max_num)
+# print(len(result1[0]))
+# # print(result1[0])
+# print(result1[1])
+#
+# print("*" * 100)
 
-result = solution3_check_prime_till_sqrt(1000000)
-print('there are', len(result[0]), 'prime numbers. They are:', result[0])
-print('In total, it takes', result[1], 'checks.')
+start_time = datetime.now()
+result1 = solution2_check_till_sqrt(max_num)
+end_time = datetime.now()
+print(len(result1[0]))
+# print(result1[0])
+print(result1[1])
+print(f'Spent {(end_time - start_time).seconds} seconds')
+
+print("*" * 100)
+
+# result1 = solution3_check_prim_till_sqrt(max_num)
+# print(len(result1[0]))
+# # print(result1[0])
+# print(result1[1])
+#
+# print("*" * 100)
+
+start_time = datetime.now()
+result1 = solution4_check_prim_till_sqrt(max_num)
+end_time = datetime.now()
+print(len(result1[0]))
+# print(result1[0])
+print(result1[1])
+print(f'Spent {(end_time - start_time).seconds} seconds')
+
