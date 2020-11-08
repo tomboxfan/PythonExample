@@ -31,7 +31,6 @@ def solution1_brute_force(max_number):
 
 
 # solution 2 - check till square root
-
 def solution2_check_till_sqrt(max_number):
 
     check_times = 0
@@ -55,9 +54,9 @@ def solution2_check_till_sqrt(max_number):
 
 # solution 3 - check all primes till square root
 # This is even slower than solution 2
-# The only possible reason is:
-# prime_to_be_checked = [e for e in prime_number_list if e <= sqrt_of_number_to_be_checked + 1] is slow
-def solution3_check_prim_till_sqrt(max_number):
+# The reason is below code is slow:
+# prime_to_be_checked = [e for e in prime_number_list if e <= sqrt_of_number_to_be_checked + 1]
+def solution3_check_prim_till_sqrt_slow_due_to_list_comprehension(max_number):
 
     check_times = 0
     prime_number_list = []
@@ -80,12 +79,6 @@ def solution3_check_prim_till_sqrt(max_number):
 
 
 
-'''
-Performance Summary:
-max_number = 1,000,000
-prime_count = 78,498
-check_count = 13,927,401
-'''
 def solution4_check_prim_till_sqrt(max_number):
 
     check_times = 0
@@ -114,18 +107,27 @@ def solution4_check_prim_till_sqrt(max_number):
 
 
 
-
 max_num = 1000000
 start_time = datetime.now()
 
 # result1 = solution1_brute_force(max_num)
+
+# Total prime numbers count: 78498
+# Total check times : 67740403
+# Spent 9 seconds
 # result1 = solution2_check_till_sqrt(max_num)
-# result1 = solution3_check_prim_till_sqrt(max_num)
+
+# result1 = solution3_check_prim_till_sqrt_slow_due_to_list_comprehension(max_num)
+
+
+# Total prime numbers count: 78498
+# Total check times : 13927401
+# Spent 3 seconds
 result1 = solution4_check_prim_till_sqrt(max_num)
 
 
-end_time = datetime.now()
-print(len(result1[0]))
-print(result1[1])
-print(f'Spent {(end_time - start_time).seconds} seconds')
 
+end_time = datetime.now()
+print(f'Total prime numbers count: {len(result1[0])}')
+print(f'Total check times : {result1[1]}')
+print(f'Spent {(end_time - start_time).seconds} seconds')
