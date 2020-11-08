@@ -66,6 +66,33 @@ def solution3_check_prime_till_sqrt(max_number):
     return (prime_number_list, check_times)
 
 
+def solution4_check_prim_till_sqrt(max_number):
+
+    check_times = 0
+    prime_number_list = []
+
+    index_of_max_prime_smaller_than_prime_candidate = 0;
+
+    for prime_candidate in range(2, max_number):
+
+        sqrt_of_number_to_be_checked = int(prime_candidate ** 0.5) + 1
+
+        # calculate index_of_max_prime_smaller_than_prime_candidate
+        while len(prime_number_list) > 0 and len(prime_number_list) > index_of_max_prime_smaller_than_prime_candidate and prime_number_list[index_of_max_prime_smaller_than_prime_candidate] < sqrt_of_number_to_be_checked:
+            index_of_max_prime_smaller_than_prime_candidate += 1
+
+        for index in range(0, index_of_max_prime_smaller_than_prime_candidate):
+            potential_factor = prime_number_list[index]
+            check_times+=1
+            if (prime_candidate % potential_factor == 0):
+                break
+        else:
+            prime_number_list.append(prime_candidate)
+
+    return (prime_number_list, check_times)
+
+
+
 
 
 # this algo cannot work if max_numbers == 100,000
