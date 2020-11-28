@@ -17,6 +17,29 @@ print(f'Your score is: {math_score}, {science_score}, {english_score}. Average s
 # Step 2) Check eligibility for Elite Class
 if math_score > 85 and science_score > 85 and english_score > 85:
     class_name = 'Elite Class'
+
+# [Solution 1]
+# elif math_score > 85 and average_score > 75 and math_score >= 70 and not science_score < 70 and english_score >= 70:
+#     clas_name = 'Math Elite Class'
+#
+# elif science_score > 85 and average_score > 75 and math_score >= 70 and not science_score < 70 and english_score >= 70:
+#     clas_name = 'Science Elite Class'
+#
+# elif english_score > 85 and average_score > 75 and math_score >= 70 and not science_score < 70 and english_score >= 70:
+#     clas_name = 'English Elite Class'
+
+# [Solution 2]
+elif (math_score > 85 or science_score > 85 or english_score > 85) and average_score > 75 and math_score >= 70 and not science_score < 70 and english_score >= 70:
+    if math_score > 85:
+        class_name = 'Math Elite Class'
+    elif science_score > 85:
+        class_name = 'Science Elite Class'
+    else:
+        class_name = 'English Elite Class'
+
+elif average_score > 75 and not math_score < 65 and science_score >= 65 and not english_score < 65:
+    class_name = 'Express Class'
+
 else:
     class_name = "Normal Class"
 
