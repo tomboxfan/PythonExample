@@ -16,6 +16,11 @@ if list is NOT empty: list - True
 #         return 1
 
 # [solution 2]
+
+'''
+Summary: 
+1) howmanyin(target_list) is converted to 1 + howmanyin(target_list[1:])
+'''
 def howmanyin(target_list):
     # base case
     if len(target_list) == 1:

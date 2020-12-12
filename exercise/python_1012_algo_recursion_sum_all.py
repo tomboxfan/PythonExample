@@ -4,6 +4,8 @@ def sum_all_no_recursion(n):
         result += i
     return result
 
+
+# sum_all(n) is converted to n + sum_all(n-1)
 def sum_all(n):
 
     # base case:

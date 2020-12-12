@@ -24,4 +24,20 @@ def time_example():
     print(f'There are {year_count} years now from 1970')
 
 
+def ctime_example():
+    second_count = time.time() # returns the elapsed seconds from the epoch till now
+
+    # IMPORTANT !!! ---------------------------------------------
+    # time.ctime(second_count) converts 'elapsed seconds from the epoch till now' to a str value which is 'current time'
+    # -----------------------------------------------------------
+    now = time.ctime(second_count) # Sat Dec 12 10:02:30 2020
+    print(now)
+
+    total_seconds_count_in_1_day = 60 * 60 * 24
+    second_count += total_seconds_count_in_1_day
+    tomorrow = time.ctime(second_count) # Sun Dec 13 10:04:57 2020
+    print(tomorrow)
+
+
 time_example()
+ctime_example()

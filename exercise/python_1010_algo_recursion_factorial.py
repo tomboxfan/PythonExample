@@ -12,6 +12,11 @@ def factorial_no_recursion(n):
 # 2 important points:
 # 1) base case
 # 2) recursive call
+#
+# Summary:
+# 1) Recursion is convert the problem into a smaller scale sub-problems.
+# Example: factorial(n) is converted into n * factorial(n-1)
+# 2) And this conversion to a smaller scale sub-problem is non-stop, until we know the answer of the smallest problem(base case).
 # ----------------------------------------------------
 
 
