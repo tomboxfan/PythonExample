@@ -21,5 +21,16 @@ def tower_of_hanoi(n, from_rod, to_rod, help_rod):
     if n == 1:
         print(f"Move disk {n} from {from_rod} to {to_rod}" )
 
+    else:
 
-tower_of_hanoi(1, 'A', 'C', 'B')
+        # Step 1) Move n-1 plates from 'from_rod' to 'help_rod', via 'to_rod'.
+        tower_of_hanoi(n-1, from_rod, help_rod, to_rod)
+
+        # Step 2) Move plate n from 'from_rod' to 'to_rod'
+        print(f"Move disk {n} from {from_rod} to {to_rod}")
+
+        # Step 3) Move n-1 plates from 'help_rod' to 'to_rod', via 'from_rod'.
+        tower_of_hanoi(n-1, help_rod, to_rod, from_rod)
+
+
+tower_of_hanoi(4, 'A', 'C', 'B')
