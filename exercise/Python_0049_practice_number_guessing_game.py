@@ -8,6 +8,7 @@ If his answer is 50, then you need to tell him. “Try Again! You guessed too hi
 If his answer is 20, then you need to tell him. “Try Again! You guessed too low”
 When he finally guesses it, you need to tell him, how many times he guesses.
 '''
+import math
 import random
 
 '''
@@ -18,8 +19,12 @@ Step 3) Loop to ask  the user "What's the correct answer?", and tell him/her hig
 '''
 
 #Step 1)
-lower = int(input("Enter positive lower bound: "))
-upper = int(input("Enter positive upper bound: "))
+lower = int(input("Enter positive lower bound: ")) # 1
+upper = int(input("Enter positive upper bound: ")) # 65
+
+
+try_limit = round(math.log2(upper - lower))
+
 
 #Step 2)
 answer = random.randint(lower, upper)
